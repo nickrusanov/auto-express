@@ -136,6 +136,8 @@ table {
 .slider__text,
 .slider__item,
 .request__input::placeholder,
+.services__tabs-title,
+.services__tabs-num,
 .socials__link,
 .footer__privacy:after,
 .contacts__link:after,
@@ -169,7 +171,10 @@ table {
 
 .footer__privacy:hover:after,
 .contacts__link:hover:after,
-.header__link:hover:after {
+.header__link:hover:after,
+.footer__privacy:focus:after,
+.contacts__link:focus:after,
+.header__link:focus:after {
   max-width: 250px;
 }
 
@@ -304,7 +309,8 @@ main {
   transition: all 0.3s ease, outline 0s;
 }
 
-.btn-main:hover {
+.btn-main:hover,
+.btn-main:focus {
   color: #5a0d67;
   background-color: #fff;
 }
@@ -315,7 +321,8 @@ main {
           transform: scale(0.95);
 }
 
-.btn-main--call:hover {
+.btn-main--call:hover,
+.btn-main--call:focus {
   outline: 2px solid #5a0d67;
 }
 
@@ -358,7 +365,8 @@ main {
   gap: 10px;
 }
 
-.socials__link:hover {
+.socials__link:hover,
+.socials__link:focus {
   -webkit-transform: scale(1.2);
       -ms-transform: scale(1.2);
           transform: scale(1.2);
@@ -483,6 +491,7 @@ main {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 12px;
+  overflow: hidden;
 }
 
 .services__tabs-item {
@@ -497,9 +506,23 @@ main {
   max-width: 450px;
   padding: 10px 30px;
   outline: 1px solid #c4c4c4;
-  -webkit-transition: all 0.3s ease, outline-width 0s;
-  -o-transition: all 0.3s ease, outline-width 0s;
-  transition: all 0.3s ease, outline-width 0s;
+  outline-offset: -2px;
+  opacity: 1;
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: all 0.3s ease, outline-width 0s, -webkit-transform 1s ease;
+  transition: all 0.3s ease, outline-width 0s, -webkit-transform 1s ease;
+  -o-transition: all 0.3s ease, transform 1s ease, outline-width 0s;
+  transition: all 0.3s ease, transform 1s ease, outline-width 0s;
+  transition: all 0.3s ease, transform 1s ease, outline-width 0s, -webkit-transform 1s ease;
+}
+
+.services__tabs-item.appear {
+  opacity: 0;
+  -webkit-transform: translateX(200px);
+      -ms-transform: translateX(200px);
+          transform: translateX(200px);
 }
 
 .services__tabs-item:hover {
@@ -680,9 +703,9 @@ main {
   font-weight: 300;
   text-align: center;
   outline: 1px solid #c4c4c4;
-  -webkit-transition: all 0.3s ease, outline 0s;
-  -o-transition: all 0.3s ease, outline 0s;
-  transition: all 0.3s ease, outline 0s;
+  -webkit-transition: all 0.3s ease, outline-width 0s;
+  -o-transition: all 0.3s ease, outline-width 0s;
+  transition: all 0.3s ease, outline-width 0s;
 }
 
 .request__input::-webkit-input-placeholder {
@@ -836,7 +859,6 @@ main {
   }
 
   .header__img {
-    right: -50px;
     max-width: 700px;
   }
 

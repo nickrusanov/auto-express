@@ -21,7 +21,8 @@
 		background-color: $color-white;
 	}
 
-	&:hover:after {
+	&:hover:after,
+	&:focus:after {
 		max-width: 250px;
 	}
 }

@@ -115,6 +115,8 @@
 		display: flex;
 		flex-direction: column;
 		gap: 12px;
+
+		overflow: hidden;
 	}
 
 	&__tabs-item {
@@ -126,8 +128,16 @@
 		padding: 10px 30px;
 
 		outline: 1px solid $color-grey;
+		outline-offset: -2px;
 
-		transition: all 0.3s ease, outline-width 0s;
+		opacity: 1;
+		transform: translateX(0);
+		transition: all 0.3s ease, transform 1s ease, outline-width 0s;
+
+		&.appear {
+			opacity: 0;
+			transform: translateX(200px);
+		}
 
 		&:hover {
 			max-width: 500px;
@@ -142,6 +152,8 @@
 	}
 
 	&__tabs-num {
+		@extend %trans;
+
 		font-weight: 400;
 		font-size: 36px;
 		color: $color-grey;
@@ -150,6 +162,8 @@
 	}
 
 	&__tabs-title {
+		@extend %trans;
+
 		font-size: 24px;
 	}
 }
@@ -301,7 +315,7 @@
 
 		outline: 1px solid $color-grey;
 
-		transition: all 0.3s ease, outline 0s;
+		transition: all 0.3s ease, outline-width 0s;
 
 		&::placeholder {
 			@extend %trans;
@@ -419,7 +433,6 @@
 	}
 
 	.header__img {
-		right: -50px;
 		max-width: 700px;
 	}
 

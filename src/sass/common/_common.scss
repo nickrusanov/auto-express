@@ -82,7 +82,8 @@ main {
 
 	transition: all 0.3s ease, outline 0s;
 
-	&:hover {
+	&:hover,
+	&:focus {
 		color: $color-accent;
 
 		background-color: $color-white;
@@ -93,7 +94,8 @@ main {
 	}
 
 	&--call {
-		&:hover {
+		&:hover,
+		&:focus {
 			outline: 2px solid $color-accent;
 		}
 
@@ -136,7 +138,8 @@ main {
 	&__link {
 		@extend %trans;
 
-		&:hover {
+		&:hover,
+		&:focus {
 			transform: scale(1.2);
 		}
 	}
