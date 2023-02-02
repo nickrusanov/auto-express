@@ -1,0 +1,210 @@
+:root {
+	--margin-section: 100px;
+	--margin-block: 50px;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	min-width: 320px;
+	overflow-x: hidden;
+
+	font: 18px/1.5 $font-primary;
+	font-weight: 300;
+}
+
+main {
+	flex-grow: 1;
+}
+
+.container {
+	max-width: 1230px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+.title-1 {
+	font-weight: 400;
+	font-size: 72px;
+	color: $color-white;
+}
+
+.title-2 {
+	font-weight: 400;
+	font-size: 36px;
+	color: $color-white;
+}
+
+.title-3 {
+	display: inline-block;
+	padding-right: 100px;
+
+	font-weight: 400;
+	font-size: 36px;
+	color: $color-brand;
+
+	position: relative;
+
+	&:after {
+		content: "";
+		height: 3px;
+		width: 80px;
+
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+
+		background-color: $color-brand;
+	}
+}
+
+.title-4 {
+	font-weight: 400;
+	color: $color-accent;
+}
+
+.btn-main {
+	display: block;
+	width: 100%;
+	max-width: 250px;
+	padding: 14px 0;
+
+	position: relative;
+
+	color: $color-white;
+	font-size: 14px;
+	font-weight: 300;
+	text-align: center;
+
+	background-color: $color-accent;
+
+	transition: all 0.3s ease, outline 0s;
+
+	&:hover {
+		color: $color-accent;
+
+		background-color: $color-white;
+	}
+
+	&:active {
+		transform: scale(0.95);
+	}
+
+	&--call {
+		&:hover {
+			outline: 2px solid $color-accent;
+		}
+
+		&:after {
+			content: "";
+			width: 80px;
+			height: 1px;
+
+			position: absolute;
+			right: -60px;
+			top: 25px;
+
+			background-color: $color-black;
+
+			animation-name: call-opacity;
+			animation-duration: 3s;
+			animation-iteration-count: infinite;
+		}
+
+		&::before {
+			content: "ЖМИ";
+
+			position: absolute;
+			right: -90px;
+
+			color: $color-accent;
+
+			animation-name: call-opacity;
+			animation-duration: 3s;
+			animation-iteration-count: infinite;
+		}
+	}
+}
+
+.socials {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+
+	&__link {
+		@extend %trans;
+
+		&:hover {
+			transform: scale(1.2);
+		}
+	}
+}
+
+// MEDIA
+
+@include lg {
+	.title-1 {
+		font-size: 50px;
+	}
+
+	.title-2,
+	.title-3 {
+		font-size: 28px;
+	}
+}
+
+@include md {
+	:root {
+		--margin-section: 50px;
+		--margin-block: 30px;
+	}
+
+	.title-3 {
+		display: block;
+
+		padding-right: 0;
+
+		text-align: center;
+
+		&::after {
+			display: none;
+		}
+	}
+
+	.title-4 {
+		text-align: center;
+	}
+}
+
+@include media(600px) {
+	.title-1 {
+		font-size: 40px;
+	}
+
+	.title-2,
+	.title-3 {
+		font-size: 24px;
+	}
+}
+
+@include sm {
+	.title-1 {
+		font-size: 32px;
+	}
+
+	.title-2,
+	.title-3 {
+		font-size: 20px;
+	}
+}
+
+@include sm {
+	.btn-main--call {
+		&::after,
+		&::before {
+			display: none;
+		} 
+	}
+}

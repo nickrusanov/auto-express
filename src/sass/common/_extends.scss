@@ -1,0 +1,27 @@
+%trans {
+	transition: all 0.3s ease;
+}
+
+%link-hover {
+	position: relative;
+
+	&:after {
+		@extend %trans;
+
+		content: "";
+		height: 2px;
+		width: 100%;
+		max-width: 0px;
+
+		position: absolute;
+		bottom: -2px;
+		left: 50%;
+		transform: translateX(-50%);
+
+		background-color: $color-white;
+	}
+
+	&:hover:after {
+		max-width: 250px;
+	}
+}
