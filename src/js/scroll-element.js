@@ -24,16 +24,12 @@ $(function () {
 					easing: 'linear'
 				}
 			)
-
-			setTimeout(() => {
-				$('#btn-top').removeClass('btn-top--visible');
-			}, 300)
 		})
 
 		$(document).on('scroll', () => {
-			if ($(window).scrollTop() > 200) {
-				$('#btn-top').addClass('btn-top--visible');
-			}
+			$(window).scrollTop() > 200
+				? $('#btn-top').addClass('btn-top--visible')
+				: $('#btn-top').removeClass('btn-top--visible');
 		})
 	}
 })
