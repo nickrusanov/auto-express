@@ -18,6 +18,7 @@ export default {
 
 	js: {
 		src: `${srcPath}/js/*.js`,
+		srcPath: `${srcPath}/js`,
 		dist: `${distPath}/js`,
 		watch: `${srcPath}/js/**/*.js`
 	},
